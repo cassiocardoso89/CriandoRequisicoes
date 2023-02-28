@@ -19,6 +19,10 @@ async function CriaVideo(titulo, descricao, url, imagem){
         })
     });
 
+    if(!conexao.ok){
+        throw new Error("Não foi possivel enviar o erro.\n" + conexao.statusText);
+    }
+
     const conexaoConvertida = await conexao.json();
 
     return conexaoConvertida;
